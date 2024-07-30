@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://6yi216qwgs1l"]
+
+[ext_resource type="Script" path="res://Scripts/kitchen_item.gd" id="1_in3ak"]
+[ext_resource type="FontFile" uid="uid://cu1gnkgagjl5r" path="res://Resources/Fonts/NotoColorEmoji-Regular.ttf" id="2_s2ryq"]
+
+[node name="Kitchen Item" type="HBoxContainer"]
+script = ExtResource("1_in3ak")
+
+[node name="image" type="Label" parent="."]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_s2ryq")
+
+[node name="name" type="Label" parent="."]
+layout_mode = 2
+text = "ingredient"
+
+[node name="selected" type="CheckBox" parent="."]
+layout_mode = 2
+
+[connection signal="toggled" from="selected" to="." method="_on_selected_toggled"]

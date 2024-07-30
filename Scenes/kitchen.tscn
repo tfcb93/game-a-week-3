@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=3 uid="uid://xe80lhucugcq"]
+
+[ext_resource type="Script" path="res://Scripts/kitchen.gd" id="1_4nhrx"]
+
+[node name="Kitchen" type="Node2D"]
+script = ExtResource("1_4nhrx")
+
+[node name="title" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Da Kitchen"
+
+[node name="interface" type="CanvasLayer" parent="."]
+
+[node name="ingredients" type="VBoxContainer" parent="interface"]
+anchors_preset = -1
+anchor_left = 0.806
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 0.487915
+offset_right = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="cook" type="Button" parent="."]
+offset_left = 7.0
+offset_top = 36.0
+offset_right = 54.0
+offset_bottom = 67.0
+text = "Cook"
+
+[connection signal="pressed" from="cook" to="." method="_on_cook_pressed"]

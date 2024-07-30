@@ -1,0 +1,22 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="game-a-week-3--a-midnight-snack-at-a-casino"
+run/main_scene="res://Scenes/gamble.tscn"
+config/features=PackedStringArray("4.2", "Forward Plus")
+config/icon="res://icon.svg"
+
+[autoload]
+
+Events="*res://Scripts/events.gd"
+Player="*res://Scripts/player_data.gd"
+Globals="*res://Scripts/globals.gd"

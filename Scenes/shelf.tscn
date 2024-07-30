@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://nvdoj6kf13j5"]
+
+[ext_resource type="Script" path="res://Scripts/shelf.gd" id="1_l3456"]
+
+[node name="shelf" type="VBoxContainer"]
+anchors_preset = -1
+anchor_left = 0.788
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 0.223938
+grow_horizontal = 0
+grow_vertical = 2
+script = ExtResource("1_l3456")
