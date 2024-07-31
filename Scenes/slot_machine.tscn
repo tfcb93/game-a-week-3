@@ -1,34 +1,35 @@
-[gd_scene load_steps=3 format=3 uid="uid://xqrbw12gg1sb"]
+[gd_scene load_steps=4 format=3 uid="uid://xqrbw12gg1sb"]
 
 [ext_resource type="Script" path="res://Scripts/slot_machine.gd" id="1_cm1pa"]
 [ext_resource type="FontFile" uid="uid://cu1gnkgagjl5r" path="res://Resources/Fonts/NotoColorEmoji-Regular.ttf" id="2_8tx6r"]
+[ext_resource type="Texture2D" uid="uid://db0feswtt4acc" path="res://Resources/Images/slot_reel.png" id="3_3881t"]
 
 [node name="Slot" type="Node2D"]
 script = ExtResource("1_cm1pa")
+
+[node name="reel_1" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(505, 250)
+texture = ExtResource("3_3881t")
+vframes = 11
+
+[node name="reel_2" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(633, 250)
+texture = ExtResource("3_3881t")
+vframes = 11
+
+[node name="reel_3" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(569, 250)
+texture = ExtResource("3_3881t")
+vframes = 11
 
 [node name="struct" type="VBoxContainer" parent="."]
 offset_left = 498.0
 offset_top = 290.0
 offset_right = 641.0
 offset_bottom = 348.0
-
-[node name="reels" type="HBoxContainer" parent="struct"]
-layout_mode = 2
-
-[node name="reel_1" type="Label" parent="struct/reels"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("2_8tx6r")
-text = "7"
-
-[node name="reel_2" type="Label" parent="struct/reels"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("2_8tx6r")
-text = "7"
-
-[node name="reel_3" type="Label" parent="struct/reels"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("2_8tx6r")
-text = "7"
 
 [node name="go" type="Button" parent="struct"]
 layout_mode = 2

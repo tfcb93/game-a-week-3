@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://cjr2kb84m1hw1"]
+
+[ext_resource type="Script" path="res://Scripts/dialog.gd" id="1_oxgfv"]
+[ext_resource type="FontFile" uid="uid://cu1gnkgagjl5r" path="res://Resources/Fonts/NotoColorEmoji-Regular.ttf" id="2_lieom"]
+
+[node name="Dialog" type="Control"]
+layout_mode = 3
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -88.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("1_oxgfv")
+
+[node name="BG" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 6.0
+offset_right = 1148.0
+offset_bottom = 84.0
+
+[node name="text" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 10.0
+offset_right = 1137.0
+offset_bottom = 74.0
+theme_override_fonts/normal_font = ExtResource("2_lieom")

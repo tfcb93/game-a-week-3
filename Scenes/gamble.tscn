@@ -1,15 +1,43 @@
-[gd_scene load_steps=5 format=3 uid="uid://cqxmikw5ivwys"]
+[gd_scene load_steps=3 format=3 uid="uid://cqxmikw5ivwys"]
 
 [ext_resource type="Script" path="res://Scripts/gamble.gd" id="1_50qdj"]
 [ext_resource type="PackedScene" uid="uid://xqrbw12gg1sb" path="res://Scenes/slot_machine.tscn" id="2_3xn0m"]
-[ext_resource type="PackedScene" uid="uid://lbyos8d5twii" path="res://Scenes/ui.tscn" id="3_0ma2v"]
-[ext_resource type="PackedScene" uid="uid://xe80lhucugcq" path="res://Scenes/kitchen.tscn" id="3_q5rpq"]
 
 [node name="Gamble" type="Node2D"]
 script = ExtResource("1_50qdj")
 
-[node name="Slot" parent="." instance=ExtResource("2_3xn0m")]
+[node name="interface" type="CanvasLayer" parent="."]
 
-[node name="Kitchen" parent="." instance=ExtResource("3_q5rpq")]
+[node name="selection" type="VBoxContainer" parent="interface"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -54.0
+offset_top = -20.0
+offset_right = 54.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Ui" parent="." instance=ExtResource("3_0ma2v")]
+[node name="Label" type="Label" parent="interface/selection"]
+layout_mode = 2
+text = "Select a game"
+
+[node name="slots" type="Button" parent="interface/selection"]
+layout_mode = 2
+text = "Slot Machine"
+
+[node name="return" type="Button" parent="interface"]
+offset_left = 10.0
+offset_top = 70.0
+offset_right = 166.0
+offset_bottom = 101.0
+text = "Return to Selection
+"
+
+[node name="Slots" parent="." instance=ExtResource("2_3xn0m")]
+
+[connection signal="pressed" from="interface/selection/slots" to="." method="_on_slots_pressed"]
+[connection signal="pressed" from="interface/return" to="." method="_on_return_pressed"]

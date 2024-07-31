@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=3 uid="uid://u1pn2i2g751j"]
+
+[ext_resource type="Script" path="res://Scripts/main.gd" id="1_lfmer"]
+[ext_resource type="PackedScene" uid="uid://2plv1yqlu3to" path="res://Scenes/player_ui.tscn" id="2_lrmes"]
+[ext_resource type="PackedScene" uid="uid://cjr2kb84m1hw1" path="res://Scenes/dialog.tscn" id="2_tgnbk"]
+[ext_resource type="PackedScene" uid="uid://xe80lhucugcq" path="res://Scenes/kitchen.tscn" id="4_1q7cb"]
+[ext_resource type="PackedScene" uid="uid://cqxmikw5ivwys" path="res://Scenes/gamble.tscn" id="5_ktfhd"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_lfmer")
+
+[node name="interface" type="CanvasLayer" parent="."]
+
+[node name="Player UI" parent="interface" instance=ExtResource("2_lrmes")]
+anchors_preset = -1
+anchor_bottom = 0.079
+offset_bottom = -0.192001
+
+[node name="Dialog" parent="interface" instance=ExtResource("2_tgnbk")]
+
+[node name="screens" type="Node2D" parent="."]
+
+[node name="Gamble" parent="screens" instance=ExtResource("5_ktfhd")]
+
+[node name="Kitchen" parent="screens" instance=ExtResource("4_1q7cb")]
