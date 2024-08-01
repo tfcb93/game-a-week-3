@@ -1,6 +1,8 @@
 extends Node;
 
 signal update_player_data;
+signal update_time;
+signal update_day;
 signal show_kitchen;
 signal show_games;
 signal add_ingredient_to_use(item: String);
