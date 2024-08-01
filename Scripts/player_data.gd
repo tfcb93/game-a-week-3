@@ -21,3 +21,4 @@ func _reduce_hungry(val: float) -> void:
 	hungry -= val;
 	if (hungry < 0):
 		hungry = 0.0;
+	Events.emit_signal("update_player_data");
