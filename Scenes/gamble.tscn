@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cqxmikw5ivwys"]
+[gd_scene load_steps=4 format=3 uid="uid://cqxmikw5ivwys"]
 
 [ext_resource type="Script" path="res://Scripts/gamble.gd" id="1_50qdj"]
 [ext_resource type="PackedScene" uid="uid://xqrbw12gg1sb" path="res://Scenes/slot_machine.tscn" id="2_3xn0m"]
+[ext_resource type="PackedScene" uid="uid://fvtg4qeoja1t" path="res://Scenes/blackjack.tscn" id="3_yoggw"]
 
 [node name="Gamble" type="Node2D"]
 script = ExtResource("1_50qdj")
@@ -29,6 +30,10 @@ text = "Select a game"
 layout_mode = 2
 text = "Slot Machine"
 
+[node name="blackjack" type="Button" parent="interface/selection"]
+layout_mode = 2
+text = "Blackjack"
+
 [node name="return" type="Button" parent="interface"]
 offset_left = 10.0
 offset_top = 70.0
@@ -39,5 +44,8 @@ text = "Return to Selection
 
 [node name="Slots" parent="." instance=ExtResource("2_3xn0m")]
 
+[node name="Blackjack" parent="." instance=ExtResource("3_yoggw")]
+
 [connection signal="pressed" from="interface/selection/slots" to="." method="_on_slots_pressed"]
+[connection signal="pressed" from="interface/selection/blackjack" to="." method="_on_blackjack_pressed"]
 [connection signal="pressed" from="interface/return" to="." method="_on_return_pressed"]

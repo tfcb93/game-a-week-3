@@ -9,3 +9,4 @@ signal cook_food;
 signal send_text_to_dialog;
 signal clear_dialog;
 signal restart_slots;
+signal shuffle_blackjack;
