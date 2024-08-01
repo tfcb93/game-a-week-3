@@ -2,90 +2,74 @@
 
 [ext_resource type="Script" path="res://Scripts/blackjack.gd" id="1_cjavk"]
 
-[node name="Blackjack" type="Node2D"]
+[node name="Blackjack" type="CanvasLayer"]
 script = ExtResource("1_cjavk")
 
-[node name="interface" type="CanvasLayer" parent="."]
-visible = false
-
-[node name="elements" type="VBoxContainer" parent="interface"]
-anchors_preset = -1
-anchor_left = 0.354
-anchor_top = 0.239
-anchor_right = 0.647
-anchor_bottom = 0.764
-offset_left = 0.191986
-offset_top = 0.127991
-offset_right = -0.343994
-offset_bottom = -0.072052
+[node name="interface" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -156.0
+offset_right = 250.0
+offset_bottom = 164.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="buttons" type="HBoxContainer" parent="interface/elements"]
+[node name="buttons" type="HBoxContainer" parent="interface"]
 layout_mode = 2
 theme_override_constants/separation = 20
 alignment = 1
 
-[node name="ask" type="Button" parent="interface/elements/buttons"]
+[node name="ask" type="Button" parent="interface/buttons"]
 layout_mode = 2
 text = "    Ask    "
 
-[node name="stay" type="Button" parent="interface/elements/buttons"]
+[node name="stay" type="Button" parent="interface/buttons"]
 layout_mode = 2
 text = "    Stay    "
 
-[node name="text" type="HBoxContainer" parent="interface/elements"]
+[node name="text" type="HBoxContainer" parent="interface"]
 layout_mode = 2
 theme_override_constants/separation = 30
 alignment = 1
 
-[node name="hand" type="VBoxContainer" parent="interface/elements/text"]
+[node name="hand" type="VBoxContainer" parent="interface/text"]
 layout_mode = 2
 
-[node name="title" type="Label" parent="interface/elements/text/hand"]
+[node name="title" type="Label" parent="interface/text/hand"]
 layout_mode = 2
 text = "Player's hand"
 horizontal_alignment = 1
 
-[node name="player_score" type="Label" parent="interface/elements/text/hand"]
+[node name="player_score" type="Label" parent="interface/text/hand"]
 layout_mode = 2
 text = "0"
 horizontal_alignment = 1
 
-[node name="players_hand" type="VBoxContainer" parent="interface/elements/text/hand"]
+[node name="players_hand" type="VBoxContainer" parent="interface/text/hand"]
 layout_mode = 2
 alignment = 2
 
-[node name="table" type="VBoxContainer" parent="interface/elements/text"]
+[node name="table" type="VBoxContainer" parent="interface/text"]
 layout_mode = 2
 
-[node name="title" type="Label" parent="interface/elements/text/table"]
+[node name="title" type="Label" parent="interface/text/table"]
 layout_mode = 2
 text = "Table's hand"
 horizontal_alignment = 1
 
-[node name="table_score" type="Label" parent="interface/elements/text/table"]
+[node name="table_score" type="Label" parent="interface/text/table"]
 layout_mode = 2
 text = "0"
 horizontal_alignment = 1
 
-[node name="tables_hand" type="VBoxContainer" parent="interface/elements/text/table"]
+[node name="tables_hand" type="VBoxContainer" parent="interface/text/table"]
 layout_mode = 2
 
-[node name="initial" type="CanvasLayer" parent="."]
-visible = false
-
-[node name="start" type="Button" parent="initial"]
-offset_left = 528.5
-offset_top = 304.0
-offset_right = 624.5
-offset_bottom = 344.0
-text = "Start Game
-"
-
-[node name="result" type="CanvasLayer" parent="."]
-
-[node name="container" type="VBoxContainer" parent="result"]
+[node name="result" type="VBoxContainer" parent="."]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -98,21 +82,20 @@ offset_bottom = 42.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="result" type="Label" parent="result/container"]
+[node name="result" type="Label" parent="result"]
 layout_mode = 2
 text = "You..."
 horizontal_alignment = 1
 
-[node name="match_status" type="Label" parent="result/container"]
+[node name="match_status" type="Label" parent="result"]
 layout_mode = 2
 text = "What happed was..."
 horizontal_alignment = 1
 
-[node name="restart" type="Button" parent="result/container"]
+[node name="restart" type="Button" parent="result"]
 layout_mode = 2
 text = "Restart"
 
-[connection signal="pressed" from="interface/elements/buttons/ask" to="." method="_on_ask_pressed"]
-[connection signal="pressed" from="interface/elements/buttons/stay" to="." method="_on_stay_pressed"]
-[connection signal="pressed" from="initial/start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="result/container/restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="interface/buttons/ask" to="." method="_on_ask_pressed"]
+[connection signal="pressed" from="interface/buttons/stay" to="." method="_on_stay_pressed"]
+[connection signal="pressed" from="result/restart" to="." method="_on_restart_pressed"]

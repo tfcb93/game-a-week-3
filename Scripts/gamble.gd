@@ -1,6 +1,6 @@
 extends Node2D
 @onready var slots: Node2D = $Slots;
-@onready var blackjack: Node2D = $Blackjack;
+@onready var blackjack: CanvasLayer = $Blackjack;
 @onready var return_btn: Button = $interface/return;
 @onready var selection: VBoxContainer = $interface/selection;
 
@@ -51,3 +51,5 @@ func _on_blackjack_pressed() -> void:
 	selection.visible = false;
 	blackjack.visible = true;
 	Events.emit_signal("shuffle_blackjack");
+	return_btn.text = "Return to selection";
+	button_type = "selection";

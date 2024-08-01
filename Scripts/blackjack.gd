@@ -1,4 +1,4 @@
-extends Node2D;
+extends CanvasLayer;
 
 var suits: Array[String] = ["spades", "hearts", "diamonds", "clubs"];
 var pile: Array = [];
@@ -8,29 +8,28 @@ var player_total_score: int = 0;
 var table_total_score: int = 0;
 var table_keep_asking: bool = true;
 
-@onready var initial: CanvasLayer = $initial;
-@onready var interface: CanvasLayer = $interface;
-@onready var result: CanvasLayer = $result;
+@onready var interface: VBoxContainer = $interface;
+@onready var result: VBoxContainer = $result;
 
 
-@onready var ask: Button = $interface/elements/buttons/ask;
-@onready var stay: Button = $interface/elements/buttons/stay;
+@onready var ask: Button = $interface/buttons/ask;
+@onready var stay: Button = $interface/buttons/stay;
 
-@onready var hand: VBoxContainer = $interface/elements/text/hand/players_hand;
-@onready var table: VBoxContainer = $interface/elements/text/table/tables_hand;
+@onready var hand: VBoxContainer = $interface/text/hand/players_hand;
+@onready var table: VBoxContainer = $interface/text/table/tables_hand;
 
-@onready var player_score: Label = $interface/elements/text/hand/player_score;
-@onready var table_score: Label = $interface/elements/text/table/table_score;
+@onready var player_score: Label = $interface/text/hand/player_score;
+@onready var table_score: Label = $interface/text/table/table_score;
 
-@onready var final_result: Label = $result/container/result;
-@onready var match_status: Label = $result/container/match_status;
+@onready var final_result: Label = $result/result;
+@onready var match_status: Label = $result/match_status;
 
 
 func _ready() -> void:
-	initial.visible = true;
-	interface.visible = false;
+	interface.visible = true;
 	result.visible = false;
 	Events.connect("shuffle_blackjack", _on_shuffle_blackjack);
+	reset_game();
 
 func _process(delta: float) -> void:
 	pass
@@ -84,17 +83,10 @@ func reset_hands() -> void:
 	for card in table.get_children():
 		table.remove_child(card);
 		card.queue_free();
-	
-func _on_start_pressed() -> void:
-	interface.visible = true;
-	result.visible = false;
-	initial.visible = false;
-	generate_pile();
 
 func _on_restart_pressed() -> void:
 	interface.visible = true;
 	result.visible = false;
-	initial.visible = false;
 	reset_game();
 
 func _on_ask_pressed() -> void:
@@ -170,7 +162,6 @@ func keep_playing() -> void:
 
 func finish_game() -> void:
 	interface.visible = false;
-	initial.visible = false;
 	result.visible = true;
 	
 	match_status.text = "You score was: %d and the table was: %d" % [player_total_score, table_total_score];
