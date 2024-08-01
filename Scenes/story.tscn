@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://j3i67t16r44t"]
+
+[ext_resource type="Script" path="res://Scripts/story.gd" id="1_in64d"]
+
+[node name="Story" type="Node2D"]
+script = ExtResource("1_in64d")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer"]
+offset_left = 30.0
+offset_top = 207.0
+offset_right = 1115.0
+offset_bottom = 406.0
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "[center]In this city, after 11pm you can't eat food normally. If you feel hungry you have to play in any of the casinos to get ingredients as awards, and ask the chef to make something tasteful for you with that.[/center]"
+
+[node name="play" type="Button" parent="CanvasLayer"]
+offset_left = 480.0
+offset_top = 432.0
+offset_right = 630.0
+offset_bottom = 468.0
+text = "Play"
+
+[connection signal="pressed" from="CanvasLayer/play" to="." method="_on_button_pressed"]
