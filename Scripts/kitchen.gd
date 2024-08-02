@@ -50,7 +50,7 @@ func _on_cook_pressed() -> void:
 	for ingredient in selected_ingredients:
 		total += Globals.weights[ingredient];
 		Player._remove_from_inventory(ingredient);
-		food_text += ingredient;
+		food_text += "[emote]" + ingredient + "[/emote]";
 	food_text += ", and it sasiate you in " + str(total) + ". It was delicious!";
 	Events.emit_signal("send_text_to_dialog", food_text);
 	Player._reduce_hungry(total);

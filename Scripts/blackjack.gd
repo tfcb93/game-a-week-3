@@ -9,6 +9,7 @@ var table_total_score: int = 0;
 var table_keep_asking: bool = true;
 var bj_price: int = 20;
 var is_game_started: bool = false;
+var awards: Array[String] = ["🍞", "🌮", "🥛", "🍯", "🍹", "🍶", "🍨"];
 
 @onready var interface: VBoxContainer = $interface;
 @onready var result: VBoxContainer = $result;
@@ -150,8 +151,7 @@ func ask_table() -> void:
 		
 		if (table_total_score >= 21):
 			table_keep_asking = false;
-			if (ask.disabled):
-				finish_game();
+			finish_game();
 		else:
 			should_table_keep_asking();
 
@@ -182,12 +182,18 @@ func finish_game() -> void:
 	if (player_total_score <= 21 and table_total_score <= 21):
 		if (player_total_score < table_total_score):
 			final_result.text = "You lose";
+			Player._add_to_inventory(awards[0]);
+			Events.emit_signal("send_text_to_dialog", "You won " + "[emote]" + awards[0] + "[/emote]");
 		else:
 			final_result.text = "You win";
+			give_award();
 	elif(table_total_score > 21 and player_total_score <= 21):
 		final_result.text = "You win";
+		give_award();
 	else:
 		final_result.text = "You lose";
+		Player._add_to_inventory(awards[0]);
+		Events.emit_signal("send_text_to_dialog", "You won " + "[emote]" + awards[0] + "[/emote]");
 	
 func _on_check_player_money() -> void:
 	if (Player.money >= bj_price):
@@ -195,3 +201,19 @@ func _on_check_player_money() -> void:
 	else:
 		restart.disabled = true;
 
+func give_award() -> void:
+	var award: String;
+	if (player_total_score < 10):
+		award = awards[1];
+	elif (player_total_score >= 10 and player_total_score < 14):
+		award = awards[2];
+	elif (player_total_score >= 14 and player_total_score < 17):
+		award = awards[3];
+	elif (player_total_score >= 17 and player_total_score < 19):
+		award = awards[4];
+	elif (player_total_score >= 19 and player_total_score < 21):
+		award = awards[5];
+	elif (player_total_score == 21):
+		award = awards[6];
+	Player._add_to_inventory(award);
+	Events.emit_signal("send_text_to_dialog", "You won " + "[emote]" + award + "[/emote]");
