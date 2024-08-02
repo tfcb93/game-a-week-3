@@ -8,7 +8,8 @@ func _ready() -> void:
 	end_text.text = end_text.text.replace("DAY_VALUE", str(Globals.actual_day)).replace("HUNGER_VALUE", str(Player.hungry));
 
 func _on_restart_pressed() -> void:
-	# remeber to reset player and global values, and check if you need to reset games too
+	Globals.restart_game();
+	Player._reset_player();
 	get_tree().change_scene_to_file("res://Scenes/story.tscn");
 
 

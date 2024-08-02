@@ -29,3 +29,8 @@ func _reduce_hungry(val: float) -> void:
 func _another_day() -> void:
 	hungry = initial_hungry * Globals.actual_day;
 	money = initial_money * Globals.actual_day;
+
+func _reset_player() -> void:
+	money = initial_money;
+	hungry = initial_money;
+	inventory = [];
