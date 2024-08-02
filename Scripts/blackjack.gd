@@ -7,6 +7,8 @@ var tables_hand: Array = [];
 var player_total_score: int = 0;
 var table_total_score: int = 0;
 var table_keep_asking: bool = true;
+var bj_price: int = 20;
+var is_game_started: bool = false;
 
 @onready var interface: VBoxContainer = $interface;
 @onready var result: VBoxContainer = $result;
@@ -23,13 +25,14 @@ var table_keep_asking: bool = true;
 
 @onready var final_result: Label = $result/result;
 @onready var match_status: Label = $result/match_status;
+@onready var restart: Button = $result/restart;
 
 
 func _ready() -> void:
 	interface.visible = true;
 	result.visible = false;
 	Events.connect("shuffle_blackjack", _on_shuffle_blackjack);
-	reset_game();
+	Events.connect("check_player_money", _on_check_player_money);
 
 func _process(delta: float) -> void:
 	pass
@@ -64,17 +67,26 @@ func generate_pile() -> void:
 	pile.shuffle();
 
 func reset_game() -> void:
+	interface.visible = true;
+	result.visible = false;
+	if (Player.money < bj_price):
+		ask.disabled = true;
+		stay.disabled = true;
+		Events.emit_signal("send_text_to_dialog", "You don't have money to play this game");
+	else:
+		ask.disabled = false;
+		stay.disabled = false;
+		generate_pile();
+		
 	players_hand = [];
 	tables_hand = [];
 	reset_hands();
 	player_total_score = 0;
 	table_total_score = 0;
-	ask.disabled = false;
-	stay.disabled = false;
 	player_score.text = str(player_total_score);
 	table_score.text = str(table_total_score);
 	table_keep_asking = true;
-	generate_pile();
+	is_game_started = false;
 	
 func reset_hands() -> void:
 	for card in hand.get_children():
@@ -85,11 +97,13 @@ func reset_hands() -> void:
 		card.queue_free();
 
 func _on_restart_pressed() -> void:
-	interface.visible = true;
-	result.visible = false;
 	reset_game();
 
 func _on_ask_pressed() -> void:
+	if (not is_game_started):
+		is_game_started = true;
+		Player._decrease_money(bj_price);
+		Events.emit_signal("check_player_money");
 	var card = pile.pop_front();
 	if (card[0] == "Ace" and card[2] + player_total_score > 21):
 		card[2] = 1;
@@ -175,6 +189,9 @@ func finish_game() -> void:
 	else:
 		final_result.text = "You lose";
 	
-	# show button to restart game
-	# give player stuff
+func _on_check_player_money() -> void:
+	if (Player.money >= bj_price):
+		restart.disabled = false;
+	else:
+		restart.disabled = true;
 
