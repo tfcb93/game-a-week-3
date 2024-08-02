@@ -1,0 +1,103 @@
+[gd_scene load_steps=2 format=3 uid="uid://dj6e1c3b4bhgr"]
+
+[ext_resource type="Script" path="res://Scripts/end_day.gd" id="1_81u16"]
+
+[node name="End Day" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_81u16")
+
+[node name="information container" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.014
+anchor_top = 0.025
+anchor_right = 0.984
+anchor_bottom = 0.877
+offset_left = -0.128
+offset_top = -0.200001
+offset_right = 0.432007
+offset_bottom = -0.296021
+
+[node name="day container" type="HBoxContainer" parent="information container"]
+layout_mode = 2
+alignment = 1
+
+[node name="day text" type="Label" parent="information container/day container"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "DAY: "
+
+[node name="day value" type="Label" parent="information container/day container"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "1111"
+
+[node name="money container" type="HBoxContainer" parent="information container"]
+layout_mode = 2
+alignment = 1
+
+[node name="money text" type="Label" parent="information container/money container"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Money: "
+
+[node name="money value" type="Label" parent="information container/money container"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "000"
+
+[node name="hunger container" type="HBoxContainer" parent="information container"]
+layout_mode = 2
+alignment = 1
+
+[node name="hunger text" type="Label" parent="information container/hunger container"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Hunger: "
+
+[node name="hunger value" type="Label" parent="information container/hunger container"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "000"
+
+[node name="ingredients container" type="HBoxContainer" parent="information container"]
+visible = false
+layout_mode = 2
+
+[node name="ingredients text" type="Label" parent="information container/ingredients container"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Ingredients: "
+
+[node name="ingredients value" type="Label" parent="information container/ingredients container"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+
+[node name="food container" type="HBoxContainer" parent="information container"]
+visible = false
+layout_mode = 2
+
+[node name="food text" type="Label" parent="information container/food container"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Food: "
+
+[node name="food value" type="Label" parent="information container/food container"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+
+[node name="next day" type="Button" parent="."]
+layout_mode = 0
+offset_left = 508.0
+offset_top = 580.0
+offset_right = 659.0
+offset_bottom = 622.0
+text = "Next day
+"
+
+[connection signal="pressed" from="next day" to="." method="_on_next_day_pressed"]

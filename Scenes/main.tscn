@@ -18,8 +18,17 @@ offset_bottom = -0.192001
 
 [node name="Dialog" parent="interface" instance=ExtResource("2_tgnbk")]
 
+[node name="go back" type="Button" parent="interface"]
+offset_left = 10.0
+offset_top = 521.0
+offset_right = 129.0
+offset_bottom = 552.0
+text = "Go back home"
+
 [node name="screens" type="Node2D" parent="."]
 
 [node name="Gamble" parent="screens" instance=ExtResource("5_ktfhd")]
 
 [node name="Kitchen" parent="screens" instance=ExtResource("4_1q7cb")]
+
+[connection signal="pressed" from="interface/go back" to="." method="_on_go_back_pressed"]

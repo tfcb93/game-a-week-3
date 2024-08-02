@@ -1,5 +1,8 @@
 extends Node;
 
+const initial_hungry: float = 10.0;
+const initial_money: int = 100;
+
 var money: int = 100;
 var hungry: float = 10.0;
 var inventory: Array[String] = [];
@@ -22,3 +25,7 @@ func _reduce_hungry(val: float) -> void:
 	if (hungry < 0):
 		hungry = 0.0;
 	Events.emit_signal("update_player_data");
+	
+func _another_day() -> void:
+	hungry = initial_hungry * Globals.actual_day;
+	money = initial_money * Globals.actual_day;
