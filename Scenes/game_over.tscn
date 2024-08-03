@@ -21,12 +21,12 @@ anchor_bottom = 0.5
 offset_left = -520.0
 offset_top = -168.0
 offset_right = 521.0
-offset_bottom = 75.0
+offset_bottom = 139.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/normal_font_size = 41
 bbcode_enabled = true
-text = "[center]On the end of day [color=\"red\"]DAY_VALUE[/color] your hunger was [color=\"red\"]HUNGER_VALUE[/color] and you had an unpleasent day of work next morning. You decided that gambling was bad to your stomach and used the money on cooking classes.[/center]"
+text = "[center]On the end of day [color=\"red\"]DAY_VALUE[/color] your hunger still there ([color=\"red\"]HUNGER_VALUE[/color]), and you had an unpleasent day of work next morning. You decided that gambling was bad to your stomach and used the money on cooking classes.[/center]"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1

@@ -22,7 +22,9 @@ grow_vertical = 2
 
 [node name="game_name" type="Label" parent="canvas/container"]
 layout_mode = 2
-text = "This game still has no name..."
+theme_override_font_sizes/font_size = 36
+text = "Lucky Meal"
+horizontal_alignment = 1
 
 [node name="start" type="Button" parent="canvas/container"]
 layout_mode = 2

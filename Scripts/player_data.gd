@@ -32,29 +32,30 @@ func _another_day() -> void:
 	match (Globals.actual_day):
 		1:
 			hungry = 1.0;
-			money = 100;
+			money += 100;
 			hungry_msg = "I need a little snack only";
 		2,3,4:
 			hungry = 3.0;
-			money = 200;
+			money += 200;
 			hungry_msg = "I could eat more than a bite";
 		5,6,7:
 			hungry = 5.0;
-			money = 350;
+			money += 300;
 			hungry_msg = "I'm kinda hungry";
 		8,9,10:
 			hungry = 7.0;
-			money = 500;
+			money += 400;
 			hungry_msg = "hungry";
 		11, 12, 13, 14:
 			hungry = 10.0;
-			money = 700;
+			money += 500;
 			hungry_msg = "I'm very hungry";
 		_:
 			hungry = 10.0 * floor(Globals.actual_day / 10) + 1;
-			money = 700 + ((floor(Globals.actual_day / 10) + 1) * 100);
+			money += 500 + ((floor(Globals.actual_day / 10) + 1) * 100);
 	inventory = [];
 
 func _reset_player() -> void:
+	money = 0;
 	_another_day();
 	inventory = [];

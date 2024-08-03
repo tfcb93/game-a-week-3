@@ -28,7 +28,6 @@ func _on_show_games() -> void:
 func build_ingredients_list() -> void:
 	for ingredient in Player.inventory:
 		var new_item = item.instantiate();
-		print(new_item);
 		ingredients.add_child(new_item);
 		new_item.call_deferred("change_image", ingredient);
 
@@ -53,16 +52,15 @@ func _on_cook_pressed() -> void:
 		Player._remove_from_inventory(ingredient);
 		food_text += "[emote]" + ingredient + "[/emote]";
 	food_text += ", and it sasiate you in " + str(total) + ". It was delicious!";
-	Events.emit_signal("send_text_to_dialog", food_text);
-	Player._reduce_hungry(total);
 	clear_ingredient_list();
 	if (len(Player.inventory) > 0):
-		print(len(Player.inventory));
 		build_ingredients_list();
 	else:
-		print("You have no more ingredients");
+		food_text += " You have no more ingredients";
 		cook.disabled = true;
-
+	Events.emit_signal("send_text_to_dialog", food_text);
+	Player._reduce_hungry(total);
+	selected_ingredients = [];
 
 func _on_button_pressed() -> void:
 	Events.emit_signal("show_games");

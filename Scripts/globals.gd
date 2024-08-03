@@ -33,7 +33,6 @@ func check_game_progress() -> void:
 		get_tree().change_scene_to_file("res://Scenes/end_day.tscn");
 
 func new_day() -> void:
-	print("new day");
 	actual_day += 1;
 	time = 0;
 	time_sum = 0.0;

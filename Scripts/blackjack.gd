@@ -183,7 +183,7 @@ func finish_game() -> void:
 		if (player_total_score < table_total_score):
 			final_result.text = "You lose";
 			Player._add_to_inventory(awards[0]);
-			Events.emit_signal("send_text_to_dialog", "You won " + "[emote]" + awards[0] + "[/emote]");
+			Events.emit_signal("send_text_to_dialog", "You got: " + "[emote]" + awards[0] + "[/emote]");
 		else:
 			final_result.text = "You win";
 			give_award();
@@ -193,7 +193,7 @@ func finish_game() -> void:
 	else:
 		final_result.text = "You lose";
 		Player._add_to_inventory(awards[0]);
-		Events.emit_signal("send_text_to_dialog", "You won " + "[emote]" + awards[0] + "[/emote]");
+		Events.emit_signal("send_text_to_dialog", "You got: " + "[emote]" + awards[0] + "[/emote]");
 	
 func _on_check_player_money() -> void:
 	if (Player.money >= bj_price):
@@ -216,4 +216,4 @@ func give_award() -> void:
 	elif (player_total_score == 21):
 		award = awards[6];
 	Player._add_to_inventory(award);
-	Events.emit_signal("send_text_to_dialog", "You won " + "[emote]" + award + "[/emote]");
+	Events.emit_signal("send_text_to_dialog", "You got: " + "[emote]" + award + "[/emote]");
