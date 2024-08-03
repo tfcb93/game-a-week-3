@@ -1,5 +1,5 @@
 extends Node2D
-@onready var slots: Node2D = $Slots;
+@onready var slots: CanvasLayer = $Slots;
 @onready var blackjack: CanvasLayer = $Blackjack;
 @onready var return_btn: Button = $interface/return;
 @onready var selection: VBoxContainer = $interface/selection;

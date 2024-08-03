@@ -8,38 +8,57 @@ script = ExtResource("1_4nhrx")
 [node name="interface" type="CanvasLayer" parent="."]
 
 [node name="Panel" type="Panel" parent="interface"]
-offset_left = 940.0
-offset_top = 56.0
-offset_right = 1140.0
-offset_bottom = 536.0
+anchors_preset = -1
+anchor_left = 0.816
+anchor_top = 0.086
+anchor_right = 0.99
+anchor_bottom = 0.827
+offset_left = -0.0320435
+offset_top = 0.271999
+offset_right = -0.480103
+offset_bottom = 0.104004
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="title" type="Label" parent="interface"]
-offset_left = 947.0
-offset_top = 60.0
-offset_right = 1035.0
-offset_bottom = 83.0
+anchors_preset = -1
+anchor_left = 0.822
+anchor_top = 0.093
+anchor_right = 0.898
+anchor_bottom = 0.128
+offset_left = 0.0559692
+offset_top = -0.264
+offset_right = 0.503906
+offset_bottom = 0.0559998
 text = "Ingredients"
 
 [node name="ingredients" type="VBoxContainer" parent="interface"]
 anchors_preset = -1
-anchor_left = 0.806
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 16.488
-offset_top = 87.0
-offset_right = -15.0
-offset_bottom = -162.0
+anchor_left = 0.818
+anchor_top = 0.124
+anchor_right = 0.987
+anchor_bottom = 0.778
+offset_left = 0.12793
+offset_top = -0.280006
+offset_right = 0.639893
+offset_bottom = -0.160034
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="cook" type="Button" parent="interface"]
-offset_left = 951.0
-offset_top = 495.0
-offset_right = 1131.0
-offset_bottom = 526.0
+anchors_preset = -1
+anchor_left = 0.816
+anchor_top = 0.826
+anchor_right = 0.989
+anchor_bottom = 0.826
+offset_left = 10.968
+offset_top = -40.248
+offset_right = -8.328
+offset_bottom = -9.24805
 text = "Cook"
 
 [node name="Button" type="Button" parent="interface"]
+anchors_preset = -1
 offset_left = 10.0
 offset_top = 70.0
 offset_right = 146.0

@@ -20,3 +20,8 @@ config/icon="res://icon.svg"
 Events="*res://Scripts/events.gd"
 Player="*res://Scripts/player_data.gd"
 Globals="*res://Scripts/globals.gd"
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720

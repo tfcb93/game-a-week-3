@@ -1,30 +1,31 @@
-extends Node2D;
+extends CanvasLayer;
 
-@onready var go: Button = $struct/go;
-@onready var reel_1: Sprite2D = $reel_1;
-@onready var reel_2: Sprite2D = $reel_2;
-@onready var reel_3: Sprite2D = $reel_3;
-@onready var result: Label = $struct/result
-@onready var award_label: Label = $struct/award
+@onready var go: Button = $organize/struct/go;
+@onready var result: Label = $organize/struct/result
+@onready var award_label: Label = $organize/struct/award
 
-var reel_length: int = 0;
+@onready var reel_1: TextureRect = $organize/reels/reel_1;
+@onready var reel_2: TextureRect = $organize/reels/reel_2;
+@onready var reel_3: TextureRect = $organize/reels/reel_3;
+
+var reel_length: int = 704 / 64; # image size; Yes, I put it manually for now
 var slots_price: int = 10;
 
 var food: Array[String] = ["🍎", "🍌", "🧄", "🍞", "🧀", "🥚", "🧇", "🍖", "🍕", "🍦", "🍰", "🍚", "🍒", "🌽", "🍤", "🥞", "🫑", "🌶", "🍺", "🥦", "🥓", "🍋‍🟩", "🫛", "🌮", "🥛", "🍯", "🍹", "🍶", "🫚" ,"🍵" , "☕️", "🫘", "🥒", "🍨"];
 
 func _ready() -> void:
-	reel_1.frame = 0;
-	reel_2.frame = 0; # normally the same as the first one
-	reel_3.frame = 0; # normally the same as the first one
-	reel_length = reel_1.vframes;
+	reel_1.texture.region.position.y = 0;
+	reel_2.texture.region.position.y = 0; # normally the same as the first one
+	reel_3.texture.region.position.y = 0; # normally the same as the first one
 	
 	Events.connect("restart_slots", _on_restart_slots);
 	Events.connect("check_player_money", _on_check_player_money);
+	
 
 func _on_restart_slots() -> void:
-	reel_1.frame = 0;
-	reel_2.frame = 0;
-	reel_3.frame = 0;
+	reel_1.texture.region.position.y = 0;
+	reel_2.texture.region.position.y = 0;
+	reel_3.texture.region.position.y = 0;
 
 
 func _on_go_pressed() -> void:
@@ -38,9 +39,9 @@ func _on_go_pressed() -> void:
 	var award: String = "";
 	award_label.text = "";
 	
-	reel_1.frame = one;
-	reel_2.frame = two;
-	reel_3.frame = three;
+	reel_1.texture.region.position.y = reel_1.texture.region.size.y * one;
+	reel_2.texture.region.position.y = reel_2.texture.region.size.y * two;
+	reel_3.texture.region.position.y = reel_3.texture.region.size.y * three;
 	
 	if ((one == two or one == three or three == two) and not (one == two and two == three)):
 		result.text = "Two are similar!";

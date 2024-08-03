@@ -8,19 +8,31 @@ script = ExtResource("1_in64d")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer"]
-offset_left = 30.0
-offset_top = 207.0
-offset_right = 1115.0
-offset_bottom = 406.0
+anchors_preset = -1
+anchor_left = 0.054
+anchor_top = 0.346
+anchor_right = 0.946
+anchor_bottom = 0.685
+offset_left = -0.120003
+offset_top = -0.12001
+offset_right = 0.119995
+offset_bottom = -0.200043
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_font_sizes/normal_font_size = 32
 bbcode_enabled = true
 text = "[center]In this city, after 11pm you can't eat food normally. If you feel hungry you have to play in any of the casinos to get ingredients as awards, and ask the chef to make something tasteful for you with that.[/center]"
 
 [node name="play" type="Button" parent="CanvasLayer"]
-offset_left = 480.0
-offset_top = 432.0
-offset_right = 630.0
-offset_bottom = 468.0
+anchors_preset = -1
+anchor_left = 0.445
+anchor_top = 0.697
+anchor_right = 0.562
+anchor_bottom = 0.735
+offset_left = -0.600037
+offset_top = -8.84003
+offset_right = -0.360046
+offset_bottom = -0.200012
 text = "Play"
 
 [connection signal="pressed" from="CanvasLayer/play" to="." method="_on_button_pressed"]
