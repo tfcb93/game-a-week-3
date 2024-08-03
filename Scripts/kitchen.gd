@@ -28,8 +28,9 @@ func _on_show_games() -> void:
 func build_ingredients_list() -> void:
 	for ingredient in Player.inventory:
 		var new_item = item.instantiate();
+		print(new_item);
 		ingredients.add_child(new_item);
-		new_item.change_image(ingredient);
+		new_item.call_deferred("change_image", ingredient);
 
 func clear_ingredient_list() -> void:
 	for child in ingredients.get_children():
@@ -56,6 +57,7 @@ func _on_cook_pressed() -> void:
 	Player._reduce_hungry(total);
 	clear_ingredient_list();
 	if (len(Player.inventory) > 0):
+		print(len(Player.inventory));
 		build_ingredients_list();
 	else:
 		print("You have no more ingredients");

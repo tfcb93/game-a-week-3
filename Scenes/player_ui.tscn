@@ -50,6 +50,11 @@ layout_mode = 2
 text = "10000000
 "
 
+[node name="hungry_msg" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "I'm hungry"
+
 [node name="clock_label" type="Label" parent="HBoxContainer"]
 layout_mode = 2
 text = "Clock:"

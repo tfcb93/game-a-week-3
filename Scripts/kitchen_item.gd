@@ -6,11 +6,14 @@ extends HBoxContainer;
 
 func _ready() -> void:
 	pass;
+
 func change_image(img: String) -> void:
-	image.text = img;
+	if (image):
+		image.text = img;
 
 func change_name(new_name: String) -> void:
-	item_name.text = new_name;
+	if (item_name):
+		item_name.text = new_name;
 
 
 

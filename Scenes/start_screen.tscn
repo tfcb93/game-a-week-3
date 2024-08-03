@@ -28,10 +28,15 @@ text = "This game still has no name..."
 layout_mode = 2
 text = "Start Game"
 
+[node name="credits" type="Button" parent="canvas/container"]
+layout_mode = 2
+text = "Credits"
+
 [node name="quit" type="Button" parent="canvas/container"]
 layout_mode = 2
 text = "Quit
 "
 
 [connection signal="pressed" from="canvas/container/start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="canvas/container/credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="canvas/container/quit" to="." method="_on_quit_pressed"]
