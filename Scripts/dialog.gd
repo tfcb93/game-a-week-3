@@ -1,6 +1,6 @@
 extends Control;
 
-@onready var text: RichTextLabel = $text
+@onready var text: RichTextLabel = $text;
 
 func _ready() -> void:
 	Events.connect("send_text_to_dialog", _on_send_text_to_dialog);

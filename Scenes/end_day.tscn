@@ -23,79 +23,8 @@ offset_top = 77.8
 offset_right = 0.432007
 offset_bottom = -170.296
 
-[node name="day container" type="HBoxContainer" parent="information container"]
-layout_mode = 2
-alignment = 1
-
-[node name="day text" type="Label" parent="information container/day container"]
-visible = false
-layout_mode = 2
-theme_override_font_sizes/font_size = 36
-text = "DAY: "
-
-[node name="day value" type="Label" parent="information container/day container"]
-visible = false
-layout_mode = 2
-theme_override_font_sizes/font_size = 36
-text = "1111"
-
-[node name="money container" type="HBoxContainer" parent="information container"]
-visible = false
-layout_mode = 2
-alignment = 1
-
-[node name="money text" type="Label" parent="information container/money container"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 24
-text = "Money: "
-
-[node name="money value" type="Label" parent="information container/money container"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 24
-text = "000"
-
-[node name="hunger container" type="HBoxContainer" parent="information container"]
-visible = false
-layout_mode = 2
-alignment = 1
-
-[node name="hunger text" type="Label" parent="information container/hunger container"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 24
-text = "Hunger: "
-
-[node name="hunger value" type="Label" parent="information container/hunger container"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 24
-text = "000"
-
-[node name="ingredients container" type="HBoxContainer" parent="information container"]
-visible = false
-layout_mode = 2
-
-[node name="ingredients text" type="Label" parent="information container/ingredients container"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 24
-text = "Ingredients: "
-
-[node name="ingredients value" type="Label" parent="information container/ingredients container"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 24
-
-[node name="food container" type="HBoxContainer" parent="information container"]
-visible = false
-layout_mode = 2
-
-[node name="food text" type="Label" parent="information container/food container"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 24
-text = "Food: "
-
-[node name="food value" type="Label" parent="information container/food container"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 24
-
 [node name="big_text" type="RichTextLabel" parent="information container"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(1000, 300)
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 32

@@ -106,6 +106,8 @@ func _on_ask_pressed() -> void:
 		Player._decrease_money(bj_price);
 		Events.emit_signal("check_player_money");
 	var card = pile.pop_front();
+
+	# Checks if the score will be higher than 21 if you sum the ace value
 	if (card[0] == "Ace" and card[2] + player_total_score > 21):
 		card[2] = 1;
 	players_hand.push_back(card);

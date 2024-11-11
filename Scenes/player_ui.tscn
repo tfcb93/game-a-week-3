@@ -28,7 +28,7 @@ offset_top = 0.24
 offset_right = -0.0400391
 offset_bottom = -0.0800018
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="information" type="HBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.008
@@ -41,49 +41,66 @@ offset_right = -0.480103
 offset_bottom = -0.0800018
 theme_override_constants/separation = 15
 
-[node name="player_name" type="Label" parent="HBoxContainer"]
+[node name="player_name" type="Label" parent="information"]
 layout_mode = 2
 text = "Player
 "
 
-[node name="money_label" type="Label" parent="HBoxContainer"]
+[node name="money" type="HBoxContainer" parent="information"]
+layout_mode = 2
+
+[node name="money_label" type="Label" parent="information/money"]
 layout_mode = 2
 text = "Money:
 "
 
-[node name="money_value" type="Label" parent="HBoxContainer"]
+[node name="money_value" type="Label" parent="information/money"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "10000000
 "
 
-[node name="hungry_label" type="Label" parent="HBoxContainer"]
+[node name="hungry" type="HBoxContainer" parent="information"]
+layout_mode = 2
+
+[node name="hungry_label" type="Label" parent="information/hungry"]
 layout_mode = 2
 text = "Hungry: "
 
-[node name="hungry_value" type="Label" parent="HBoxContainer"]
+[node name="hungry_value" type="Label" parent="information/hungry"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "10000000
 "
 
-[node name="hungry_msg" type="Label" parent="HBoxContainer"]
+[node name="hungry_msg" type="Label" parent="information/hungry"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 12
-text = "I'm hungry"
+text = "(I'm hungry)"
 
-[node name="clock_label" type="Label" parent="HBoxContainer"]
+[node name="clock" type="HBoxContainer" parent="information"]
+layout_mode = 2
+
+[node name="clock_label" type="Label" parent="information/clock"]
 layout_mode = 2
 text = "Clock:"
 
-[node name="clock_value" type="Label" parent="HBoxContainer"]
+[node name="clock_value" type="Label" parent="information/clock"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "23:00
 "
 
-[node name="day_label" type="Label" parent="HBoxContainer"]
+[node name="day" type="HBoxContainer" parent="information"]
+layout_mode = 2
+
+[node name="day_label" type="Label" parent="information/day"]
 layout_mode = 2
 text = "Day:"
 
-[node name="day_value" type="Label" parent="HBoxContainer"]
+[node name="day_value" type="Label" parent="information/day"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "0
 "

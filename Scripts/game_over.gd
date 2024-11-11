@@ -1,11 +1,7 @@
-extends Control
-
-@onready var end_text: RichTextLabel = $end_text
-@onready var restart: Button = $VBoxContainer/restart
-@onready var quit: Button = $VBoxContainer/quit
+extends Control;
 
 func _ready() -> void:
-	end_text.text = end_text.text.replace("DAY_VALUE", str(Globals.actual_day)).replace("HUNGER_VALUE", str(Player.hungry));
+	%end_text.text = %end_text.text.replace("DAY_VALUE", str(Globals.actual_day)).replace("HUNGER_VALUE", str(Player.hungry));
 
 func _on_restart_pressed() -> void:
 	Globals.restart_game();

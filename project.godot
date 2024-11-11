@@ -21,6 +21,10 @@ Events="*res://Scripts/events.gd"
 Player="*res://Scripts/player_data.gd"
 Globals="*res://Scripts/globals.gd"
 
+[debug]
+
+gdscript/warnings/unused_signal=0
+
 [display]
 
 window/size/viewport_width=1280
