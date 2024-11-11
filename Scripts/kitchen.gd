@@ -1,10 +1,6 @@
 extends Node2D;
 
 var item: PackedScene = preload("res://Scenes/kitchen_item.tscn");
-@onready var ingredients: VBoxContainer = $interface/ingredients;
-@onready var cook: Button = $interface/cook;
-@onready var interface: CanvasLayer = $interface;
-
 var selected_ingredients: Array[String] = [];
 
 func _ready() -> void:
@@ -12,29 +8,29 @@ func _ready() -> void:
 	Events.connect("show_games", _on_show_games);
 	Events.connect("add_ingredient_to_use", _on_add_ingredient_to_use);
 	Events.connect("remove_ingredient_to_use", _on_remove_ingredient_to_use);
-	interface.visible = false;
+	%interface.visible = false;
 
 func _on_show_kitchen() -> void:
-	interface.visible = true;
+	%interface.visible = true;
 	if (len(Player.inventory) <= 0):
-		cook.disabled = true;
+		%cook.disabled = true;
 	else:
 		build_ingredients_list()
-		cook.disabled = false;
+		%cook.disabled = false;
 
 func _on_show_games() -> void:
-	interface.visible = false;
+	%interface.visible = false;
 
 func build_ingredients_list() -> void:
 	clear_ingredient_list();
 	for ingredient in Player.inventory:
 		var new_item = item.instantiate();
-		ingredients.add_child(new_item);
+		%ingredients.add_child(new_item);
 		new_item.call_deferred("change_image", ingredient);
 
 func clear_ingredient_list() -> void:
-	for child in ingredients.get_children():
-		ingredients.remove_child(child);
+	for child in %ingredients.get_children():
+		%ingredients.remove_child(child);
 		child.queue_free();
 
 func _on_add_ingredient_to_use(ingredient: String) -> void:
@@ -58,7 +54,7 @@ func _on_cook_pressed() -> void:
 		build_ingredients_list();
 	else:
 		food_text += " You have no more ingredients";
-		cook.disabled = true;
+		%cook.disabled = true;
 	Events.emit_signal("send_text_to_dialog", food_text);
 	Player._reduce_hungry(total);
 	selected_ingredients = [];

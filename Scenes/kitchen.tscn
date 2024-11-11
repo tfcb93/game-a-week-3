@@ -6,6 +6,7 @@
 script = ExtResource("1_4nhrx")
 
 [node name="interface" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
 
 [node name="Panel" type="Panel" parent="interface"]
 anchors_preset = -1
@@ -33,6 +34,7 @@ offset_bottom = 0.0559998
 text = "Ingredients"
 
 [node name="ingredients" type="VBoxContainer" parent="interface"]
+unique_name_in_owner = true
 anchors_preset = -1
 anchor_left = 0.818
 anchor_top = 0.124
@@ -46,6 +48,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="cook" type="Button" parent="interface"]
+unique_name_in_owner = true
 anchors_preset = -1
 anchor_left = 0.816
 anchor_top = 0.826

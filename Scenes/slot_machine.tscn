@@ -36,14 +36,17 @@ grow_vertical = 2
 layout_mode = 2
 
 [node name="reel_1" type="TextureRect" parent="organize/reels"]
+unique_name_in_owner = true
 layout_mode = 2
 texture = SubResource("AtlasTexture_ddd7h")
 
 [node name="reel_2" type="TextureRect" parent="organize/reels"]
+unique_name_in_owner = true
 layout_mode = 2
 texture = SubResource("AtlasTexture_ai2th")
 
 [node name="reel_3" type="TextureRect" parent="organize/reels"]
+unique_name_in_owner = true
 layout_mode = 2
 texture = SubResource("AtlasTexture_jkvej")
 
@@ -51,13 +54,16 @@ texture = SubResource("AtlasTexture_jkvej")
 layout_mode = 2
 
 [node name="go" type="Button" parent="organize/struct"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Let's go gambling"
 
 [node name="result" type="Label" parent="organize/struct"]
+unique_name_in_owner = true
 layout_mode = 2
 
 [node name="award" type="Label" parent="organize/struct"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_8tx6r")
 

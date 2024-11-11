@@ -51,8 +51,8 @@ func _another_day() -> void:
 			money += 500;
 			hungry_msg = "I'm very hungry";
 		_:
-			hungry = 10.0 * floor(Globals.actual_day / 10) + 1;
-			money += 500 + ((floor(Globals.actual_day / 10) + 1) * 100);
+			hungry = 10.0 * floor(Globals.actual_day / 10.0) + 1;
+			money += 500 + ((floor(Globals.actual_day / 10.0) + 1) * 100);
 	inventory = [];
 
 func _reset_player() -> void:

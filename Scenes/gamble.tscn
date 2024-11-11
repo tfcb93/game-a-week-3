@@ -10,6 +10,7 @@ script = ExtResource("1_50qdj")
 [node name="interface" type="CanvasLayer" parent="."]
 
 [node name="selection" type="VBoxContainer" parent="interface"]
+unique_name_in_owner = true
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -34,7 +35,8 @@ text = "Slot Machine"
 layout_mode = 2
 text = "Blackjack"
 
-[node name="return" type="Button" parent="interface"]
+[node name="btn_return" type="Button" parent="interface"]
+unique_name_in_owner = true
 offset_left = 10.0
 offset_top = 70.0
 offset_right = 166.0
@@ -42,10 +44,12 @@ offset_bottom = 101.0
 text = "Return to Selection
 "
 
-[node name="Slots" parent="." instance=ExtResource("2_3xn0m")]
+[node name="slots" parent="." instance=ExtResource("2_3xn0m")]
+unique_name_in_owner = true
 
-[node name="Blackjack" parent="." instance=ExtResource("3_yoggw")]
+[node name="blackjack" parent="." instance=ExtResource("3_yoggw")]
+unique_name_in_owner = true
 
 [connection signal="pressed" from="interface/selection/slots" to="." method="_on_slots_pressed"]
 [connection signal="pressed" from="interface/selection/blackjack" to="." method="_on_blackjack_pressed"]
-[connection signal="pressed" from="interface/return" to="." method="_on_return_pressed"]
+[connection signal="pressed" from="interface/btn_return" to="." method="_on_return_pressed"]
