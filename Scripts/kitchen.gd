@@ -26,6 +26,7 @@ func _on_show_games() -> void:
 	interface.visible = false;
 
 func build_ingredients_list() -> void:
+	clear_ingredient_list();
 	for ingredient in Player.inventory:
 		var new_item = item.instantiate();
 		ingredients.add_child(new_item);
