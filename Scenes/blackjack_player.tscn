@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://b2bfemlnu3mbe"]
+
+[ext_resource type="Script" path="res://Scripts/blackjack_player.gd" id="1_lhwun"]
+
+[node name="blackjack_player" type="VBoxContainer"]
+script = ExtResource("1_lhwun")
+
+[node name="player_name" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+horizontal_alignment = 1
+
+[node name="player_score" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+horizontal_alignment = 1
+
+[node name="player_hand" type="VBoxContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
