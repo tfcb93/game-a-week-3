@@ -7,6 +7,7 @@
 script = ExtResource("1_cjavk")
 
 [node name="interface" type="VBoxContainer" parent="."]
+unique_name_in_owner = true
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -25,10 +26,12 @@ theme_override_constants/separation = 20
 alignment = 1
 
 [node name="ask" type="Button" parent="interface/buttons"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "    Ask    "
 
 [node name="stay" type="Button" parent="interface/buttons"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "    Stay    "
 
@@ -46,6 +49,7 @@ unique_name_in_owner = true
 layout_mode = 2
 
 [node name="result" type="VBoxContainer" parent="."]
+unique_name_in_owner = true
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -58,17 +62,20 @@ offset_bottom = 42.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="result" type="Label" parent="result"]
+[node name="final_result" type="Label" parent="result"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "You..."
 horizontal_alignment = 1
 
 [node name="match_status" type="Label" parent="result"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "What happed was..."
 horizontal_alignment = 1
 
 [node name="restart" type="Button" parent="result"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Restart"
 
