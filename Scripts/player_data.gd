@@ -8,27 +8,27 @@ var hungry: float = 1.0;
 var hungry_msg: String = "A little hungry";
 var inventory: Array[String] = [];
 
-func _decrease_money(val: int) -> void:
+func decrease_money(val: int) -> void:
 	money -= val;
 	Events.emit_signal("update_player_data");
 	
-func _add_to_inventory(item: String) -> void:
+func add_to_inventory(item: String) -> void:
 	inventory.push_back(item);
 	Events.emit_signal("update_player_data");
 
-func _remove_from_inventory(item: String) -> void:
+func remove_from_inventory(item: String) -> void:
 	var item_index: int = inventory.find(item);
 	if (item_index != -1):
 		inventory.remove_at(item_index);
 
-func _reduce_hungry(val: float) -> void:
+func reduce_hungry(val: float) -> void:
 	hungry -= val;
 	if (hungry <= 0.0):
 		hungry = 0.0;
 		get_tree().change_scene_to_file("res://Scenes/end_day.tscn");
 	Events.emit_signal("update_player_data");
 	
-func _another_day() -> void:
+func another_day() -> void:
 	match (Globals.actual_day):
 		1:
 			hungry = 1.0;
@@ -55,7 +55,7 @@ func _another_day() -> void:
 			money += 500 + ((floor(Globals.actual_day / 10.0) + 1) * 100);
 	inventory = [];
 
-func _reset_player() -> void:
+func reset_player() -> void:
 	money = 0;
-	_another_day();
+	another_day();
 	inventory = [];

@@ -53,7 +53,7 @@ func _on_restart_pressed() -> void:
 func _on_ask_pressed() -> void:
 	if (not is_game_started):
 		is_game_started = true;
-		Player._decrease_money(bj_price);
+		Player.decrease_money(bj_price);
 		Events.emit_signal("check_player_money");
 	var card = pile.pop_front();
 
@@ -116,7 +116,7 @@ func finish_game() -> void:
 	if (%player_hand.score <= 21 and %table_hand.score <= 21):
 		if (%player_hand.score < %table_hand.score):
 			%final_result.text = "You lose";
-			Player._add_to_inventory(awards[0]);
+			Player.add_to_inventory(awards[0]);
 			Events.emit_signal("send_text_to_dialog", "You got: " + "[emote]" + awards[0] + "[/emote]");
 		else:
 			%final_result.text = "You win";
@@ -126,7 +126,7 @@ func finish_game() -> void:
 		give_award();
 	else:
 		%final_result.text = "You lose";
-		Player._add_to_inventory(awards[0]);
+		Player.add_to_inventory(awards[0]);
 		Events.emit_signal("send_text_to_dialog", "You got: " + "[emote]" + awards[0] + "[/emote]");
 	
 func _on_check_player_money() -> void:
@@ -149,5 +149,5 @@ func give_award() -> void:
 		award = awards[5];
 	elif (%player_hand.score == 21):
 		award = awards[6];
-	Player._add_to_inventory(award);
+	Player.add_to_inventory(award);
 	Events.emit_signal("send_text_to_dialog", "You got: " + "[emote]" + award + "[/emote]");

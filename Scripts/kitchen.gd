@@ -46,7 +46,7 @@ func _on_cook_pressed() -> void:
 	var food_text: String = "Chef made a plate with: ";
 	for ingredient in selected_ingredients:
 		total += Globals.weights[ingredient];
-		Player._remove_from_inventory(ingredient);
+		Player.remove_from_inventory(ingredient);
 		food_text += "[emote]" + ingredient + "[/emote]";
 	food_text += ", and it sasiate you in " + str(total) + ". It was delicious!";
 	clear_ingredient_list();
@@ -56,7 +56,7 @@ func _on_cook_pressed() -> void:
 		food_text += " You have no more ingredients";
 		%cook.disabled = true;
 	Events.emit_signal("send_text_to_dialog", food_text);
-	Player._reduce_hungry(total);
+	Player.reduce_hungry(total);
 	selected_ingredients = [];
 
 func _on_button_pressed() -> void:

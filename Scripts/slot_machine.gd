@@ -25,7 +25,7 @@ func _on_restart_slots() -> void:
 
 func _on_go_pressed() -> void:
 	%result.text = "";
-	Player._decrease_money(slots_price);
+	Player.decrease_money(slots_price);
 	Events.emit_signal("check_player_money");
 	var one: int = randi_range(0, reel_length - 1);
 	var two: int = randi_range(0, reel_length - 1);
@@ -48,7 +48,7 @@ func _on_go_pressed() -> void:
 		Events.emit_signal("send_text_to_dialog", "Aw dang it!");
 	if award != "":
 		Events.emit_signal("send_text_to_dialog", "your award is: " + "[emote]" + award + "[/emote]");
-		Player._add_to_inventory(award);
+		Player.add_to_inventory(award);
 		
 func _on_check_player_money() -> void:
 	if (Player.money >= slots_price):

@@ -40,7 +40,7 @@ func new_day() -> void:
 	time_sum = 0.0;
 	Events.emit_signal("update_day");
 	format_hour();
-	Player._another_day();
+	Player.another_day();
 
 func restart_game() -> void:
 	actual_day = 1;

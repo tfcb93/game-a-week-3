@@ -5,7 +5,7 @@ func _ready() -> void:
 
 func _on_restart_pressed() -> void:
 	Globals.restart_game();
-	Player._reset_player();
+	Player.reset_player();
 	get_tree().change_scene_to_file("res://Scenes/story.tscn");
 
 
