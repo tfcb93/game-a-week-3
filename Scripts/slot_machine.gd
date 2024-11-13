@@ -16,12 +16,10 @@ func _ready() -> void:
 	Events.connect("restart_slots", _on_restart_slots);
 	Events.connect("check_player_money", _on_check_player_money);
 	
-
 func _on_restart_slots() -> void:
 	%reel_1.texture.region.position.y = 0;
 	%reel_2.texture.region.position.y = 0;
 	%reel_3.texture.region.position.y = 0;
-
 
 func _on_go_pressed() -> void:
 	%result.text = "";
